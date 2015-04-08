@@ -1,0 +1,47 @@
+<center>
+<div id='popup_background'></div>
+
+<div id='popup_div'>
+  <div id='pd-header'>  
+     <span id="pd-header-title" class="alert alert-info"> Enroll: <label id="course"> </label>
+     </span> 
+     <span>
+        <button type="button" class="close" aria-hidden="true" 
+                onclick="javascript:closeForm()">&times;</button>
+     </span>
+  </div>
+ </br>
+ <div id='CoursekeyCont'>
+ <span id="CoursekeyH">
+          <label>--  Enter Coursekey  ---</label></br>
+ </span></br>
+<?php
+
+  echo "<form id='CK' action='javascript:confirmKey(\"CK\")' method='post' onsubmit='return true'>";
+  echo  "<input type='hidden' name='std_id' value='{$_SESSION['stud_id']}'>";
+  echo  "<input type='hidden' id='scr_id' name='scr_id' value=''>";
+  echo  "<input type='hidden' name='action' value='enroll'>";
+  echo  "<input type='hidden' name='tartget' value='check'>";
+  echo  "<input type='text'   required  maxlength='5' name='SCK' value='' autofocus id='CkTxt'>";
+
+?></br></br>
+</div>
+<span id='feedback' style='position: absolute; top: 160px; left: 30px;width: 60%' >
+</span> 
+</br>
+</br>
+  
+  
+   <div id='pd-footer'>
+       <span style='position: absolute;
+                    left: 70%;
+                    top:60%;'>
+          <input type="button" class="btn btn-default" name="cancel" value="Cancel"
+                onclick="javascript:closeForm()">
+         <input type="submit" class="btn btn-primary"  name='enter' value='Enter'>
+    
+       </span>
+   </div>
+   </form>
+   </div></center>
+

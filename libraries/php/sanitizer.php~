@@ -1,0 +1,17 @@
+<?php
+/*class Sanitizer{
+
+ 
+  }*/
+ 
+ function sanitize($input){
+    $strip_chars = "'\";";
+    return trim(strip_tags($input),$strip_chars);
+ }
+
+ function sanitize_text($input){
+   $strip_chars = "'\";";
+   return trim($input);
+ }
+
+?>

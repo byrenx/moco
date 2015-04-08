@@ -1,0 +1,59 @@
+ <!--- content--->
+<div id="about_cont_con">
+  <!---header-->
+  <div id="about_hdr">
+     <span class='h3'>
+       Assignment Submissions&nbsp;-&nbsp; <?php echo $ass_inf['title'];?>
+     </span>
+  </div>
+    
+  <div id="sub-content">
+    <?php if(count($ass_subs) > 0){ ?>
+       <table class='table table-striped'>
+          <caption style='color: blue'><b>Showing <?php echo count($ass_subs);?> submission(s)</b></caption>
+          <thead>
+	     <tr>
+               <th></th><th>Name</td><th>Date Submitted</td><th>Score<?php echo $test_inf['total_points']; ?></td>
+             </tr>
+          </thead>
+          <tbody>
+	    <?php foreach($ass_subs as $sub){?>
+	      <tr id="<?php echo $sub['assign_sub_id'];?>">
+                 <td>
+                   <a href='javascript:showRateMod(<?php echo $sub['assign_sub_id'];?>)' title='rate this submission'>
+                     <span class='glyphicon glyphicon-star-empty'></span>
+	           </a>&nbsp;
+                   <a href="../../assignment_attachment/<?php echo $sub['file_url'];?>" title='download submission'>
+                     <span class='glyphicon glyphicon-download-alt'></span>
+	           </a>&nbsp;
+                 </td>
+	         <td>
+                    <?php echo $sub['LASTNAME']; ?>,&nbsp;
+	            <?php echo $sub['FIRSTNAME']; ?>&nbsp;
+	            <?php echo $sub['MIDDLENAME']; ?>
+                 </td>
+	         <td><?php 
+		        $ds = new DateTime($sub['date_submitted']);
+		        echo $ds->format('F, j, Y');
+                      ?>
+                 </td>
+											         <td><?php if($sub['rating'] >= 0){
+                             echo $sub['rating'];
+	                   }else{
+		             echo "Unrated";
+	                   }
+                    ?>
+                 </td>
+	      </tr>
+	  </tbody>
+             <?php }?>
+	</table>
+	<?php } else{
+                    echo "<div class='alert alert-danger'>
+                            <b>Currently no Submissions Found!</b>
+                         </div>";
+                   
+              }
+    ?>
+  </div>
+</div>

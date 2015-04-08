@@ -1,0 +1,35 @@
+<?php
+
+include "../../libraries/proj_abs_cls/instructor.php";
+
+class IM_Instructor extends Instructor{
+  
+  private $query;
+  private $rs;
+  
+  public function __construct($connector){
+    $this->db_connector=$connector;
+  }
+
+  public function getTaughtCourses($id){
+    //$arg_val = array($id);
+    $this->query = "SELECT icr.instructor_id,
+		           icr.course_id,
+			   c.course_desc,
+                           icr.ic_id,
+                           icr.course_type
+		   FROM instructorcourserecord icr,
+		        course c
+                   WHERE icr.instructor_id=$id
+		   AND c.course_id=icr.course_id";
+  
+    $courses = $this->db_connector->selectAll($this->query);
+
+    return $courses->fetchAll();
+  }
+
+  
+
+}
+
+?>

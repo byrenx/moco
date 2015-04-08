@@ -1,0 +1,62 @@
+
+<div id='popup-div-lect-mat'>
+  <div id='pd-header'>  
+     <span id="pd-header-title">
+       Lecture Material
+     </span>
+ 
+     <span>
+        <button type="button" class="close" aria-hidden="true" 
+                onclick="javascript:hide_form('popup_background','popup-div-lect-mat')">&times;</button>
+     </span>
+  </div>
+   <!----action="javascript:uploadLecture('lect_mat')"--->
+  <form id = "lect_mat"
+        action = "../../libraries/php/exec_controller.php" 
+        enctype = "multipart/form-data"
+        method = "post" onsubmit="javascript:return valid_file();">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="target" value="lecture_material">
+        <input type="hidden" id="lect_id" name="lect_id" value="">
+
+     <div id='pd-content'> 
+        <div id='fb' style='margin: 10px 10px 20px 5px;'></div>
+        <div class="form-group">
+          <label>Upload Only the following file types:</label>
+          <p>
+             .txt, .pdf, .mov, .webm, .mp4, .mp3, .docx, .ppt
+          </p>
+        </div>
+        <div class='form-group'>
+           <label>Browse File</label>
+           <input type="hidden" name="MAX_FILE_SIZE" value="41943040"/>
+           <input type='file' id="lect_mat_file" name='file_url'/>
+        </div>
+
+        <div class="form-group" id="f_size">
+        </div>
+
+        <div class="checkbox">
+          <label>
+             <input type="checkbox" name="allow_download" checked="checked">&nbsp;Allow Download
+          </label>
+        </div>
+
+        <div class="form-group">
+          <span id="loading">
+          </span>
+        </div>
+     </div>
+
+     <div id='pd-footer'>
+        <span style='position: absolute;
+                    left: 70%;
+                    top:5px;'>
+          <input type="button" class="btn btn-default" name="cancel" value="Cancel"
+                onclick="javascript:hide_form('popup_background','popup-div-lect-mat')">
+          <input type="submit" class="btn btn-primary"  name='save' value='Upload' data-loading-text="Uploading...">
+        </span>
+     </div>
+
+   </form>
+</div>

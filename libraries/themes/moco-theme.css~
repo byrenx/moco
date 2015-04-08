@@ -1,0 +1,1239 @@
+/*
+ body style
+*/
+
+body{
+  font-family: helvetica;
+}
+
+div.ass-con{
+    position: relative;
+    width:98%;
+    height: auto auto;
+    padding: 0px 0px 0px 0px;
+    margin-top: 20px;
+}
+
+.ass-con .header{
+    position: relative;
+    height: auto auto;
+    padding: 2px 10px 0px 10px;
+    width: 100%;
+    background-color: rgb(240,240,240);
+}
+
+span.header{
+    font-size: 1.21em;
+}
+
+span.header a{
+    color: maroon;
+    text-decoration: underline;
+}
+
+div.ass-con .panel-body{
+    display: none;
+    padding: 10px 10px 10px 10px;
+    border-color: #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+}
+
+p.question{
+    font-size: 1.16em;
+}
+
+
+/*ssignment styling*/
+
+/*
+*  quiz item container
+*/
+
+#mp-item-con{
+  display: none;
+  position: fixed;
+  left: 0px;
+  width: 600px;
+  height: auto auto;
+  background-color:rgb(240,240,240);
+  z-index: 999;
+  border: rgb(230,230,230);
+  padding: 20px;
+ 
+}
+
+#mtf-item-con{
+  display: none;
+  position: fixed;
+  left: 0px;
+  width: 600px;
+  height: auto auto;
+  background-color:rgb(240,240,240);
+  z-index: 999;
+  border: rgb(230,230,230);
+  padding: 20px;
+}
+
+#ident-item-con{
+  display: none;
+  position: fixed;
+  left: 0px;
+  width: 600px;
+  height: auto auto;
+  background-color:rgb(240,240,240);
+  z-index: 999;
+  border: rgb(230,230,230);
+  padding: 20px;
+}
+
+/*****MULTIPLE CHOICE ITEM VIEW*******/
+
+div.mp-item-view{
+  position: relative;
+  left: 5%;
+  width: 85%;
+  height: auto;
+  background-color:rgb(240,240,240);
+  border: rgb(230,230,230);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+div.tf-item-view{
+  position: relative;
+  left: 5%;
+  width: 85%;
+  height: auto auto;
+  background-color:rgb(240,240,240);
+  border: rgb(230,230,230);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+div.mp-item-view > .content{
+  position:relative;
+  top: 0px;
+  left: 30px;
+  width: 90%;
+  padding: 20px;
+  height: 250px;
+}
+
+/******end of multiple choice item view*******/
+
+/*true or false container item*/
+
+#tf-item-con{
+  display: none;
+  position: fixed;
+  left: 0px;
+  width: 600px;
+  height: auto auto;
+  background-color:rgb(240,240,240);
+  z-index: 999;
+  border: rgb(230,230,230);
+  padding: 20px;
+}
+
+div.item-content{
+  position:relative;
+  top: 0px;
+  left: 20px;
+  width: 90%;
+  padding: 20px;
+  height: auto auto;
+}
+
+div.mtf-item-con{/*modified true or false container item*/
+  visibility: hidden;
+  position: absolute;
+  left: 20px;
+  width: 90%;
+  height: 250px;
+  background-color:rgb(240,240,240);
+  border: rgb(230,230,230);
+  padding: 20px;
+}
+
+div.mp-item-con > .hdr{
+  width: 100%;
+  position: relative;
+  height: 40px;
+}
+
+
+div.mp-item-con > .content{
+  position:relative;
+  top: 0px;
+  width: 90%;
+  padding: 20px;
+  height: 250px;
+}
+
+textarea.text{
+  width: 90%;
+  height: 60px;
+}
+
+
+
+
+
+/*****page content container******/
+.content-container{
+  position: relative;
+  width: 90%;
+  height: auto auto;
+}
+
+.c-nav-container{
+    position:relative; 
+    width: 100%; 
+    top: 40px;
+    height: auto auto
+}
+/*************************
+*  login form container
+*************************/
+#login_container{
+  position: relative;
+  top: 160px;
+  width: 45%;
+  border: 1px solid rgb(230,230,230);
+  height: auto auto;
+  padding: 20px;
+  background-color: rgb(250,250,250);
+}
+
+#login_note{
+  position:absolute;
+  left:53%;
+  top:30px;
+  width:45%;
+  height: 90px;
+  padding:20px;
+  background-color:transparent;
+  border: 1px solid rgb(230,230,230);
+}
+
+.login-form{
+  position: relative;
+  width: 48%;
+  height: auto auto;
+}
+
+/***********************
+** Page dialog
+***********************/
+#page_dialog{
+  position: relative;
+  height: auto auto;
+  width: 100%;
+  border:1px solid lightgrey;
+  background-color: rgb(250,250,250);
+  margin-top: 20px;  
+}
+
+/*quiz box*/
+div.right-buttons{
+ text-align: right;
+}
+
+/*quiz details*/
+.quiz-details{
+  font-family: helvetica;
+  font-weight: 16px;
+}
+ 
+
+#hdr{
+  position: relative;
+  width: 100%;
+  padding-top: 10px;
+  height: 40px;
+  background-color: rgb(235,235,235);
+}
+
+#hdr-title{
+ position: absolute;
+ left: 20px;
+ width: 90%;
+ height: 20px;
+ font: bold 20px helvetica;
+}
+
+
+#xbutton{
+  position: absolute;
+  left: 96%;
+  width: 16px;
+  height: 16px;
+ 
+}
+
+#pg-diag-content{
+  position: relative;
+  margin-top:20px;
+  padding: 10px;
+  width: 90%;
+  left: 20px;
+  height: auto auto;
+}
+
+/**************************
+* input element
+**************************/
+.input-element{
+  position: relative;
+  width: 100%;
+  top: 5px;
+  height: 25px;
+}
+
+
+
+/***********end of page dialog style*************/
+
+#sub-content{
+  position: relative;
+  margin-top: 20px;
+  width: 95%;
+  min-height: auto auto;
+  text-align: left;
+}
+
+/********************
+*  popup dialog style here
+*************************/
+
+#popup_background{
+    position: fixed; 
+    top:0; 
+    left:0; 
+    bottom:0; 
+    right:0;
+     
+    background:#000000;
+    opacity: .3;
+    -moz-opacity: .3;
+    filter: alpha(opacity=30);
+    border:1px solid #cecece;
+    z-index:1;
+    display:none;
+}
+
+#popup_div{
+   position:fixed;
+   left: 0px;
+   top: 100px;
+   height: auto auto;
+   width:550px;
+   background:#FFFFFF;
+   border:1px solid rgb(204,204,204);
+   padding:10px;
+   z-index:999;
+   cursor:default;   
+   display:none;
+   border-radius: 10px;
+   background-color: rgb(250,250,250);
+}
+
+.popup_div{
+   position:fixed;
+   left: 0px;
+   top: 100px;
+   height: auto auto;
+   width:550px;
+   background:#FFFFFF;
+   border:1px solid rgb(204,204,204);
+   padding:10px;
+   z-index:999;
+   cursor:default;   
+   display:none;
+   border-radius: 10px;
+   background-color: rgb(250,250,250);
+}
+
+
+#popup-div-lect-mat{
+   position:fixed;
+   left: 0px;
+   top: 100px;
+   height: auto auto;
+   width:550px;
+   background:#FFFFFF;
+   border:1px solid rgb(204,204,204);
+   padding:10px;
+   z-index:999;
+   cursor:default;   
+   display:none;
+   border-radius: 10px;
+   background-color: rgb(250,250,250);
+}
+
+#pd-header{
+  position: relative;
+  height: 40px;
+  width: 100%;
+  border-radius-top-left: 4px;
+  border-radius-top-right: 4px;
+  border-bottom: 1px solid rgb(204,204,204);
+}
+
+#pd-header-title{
+  position:absolute;
+  left: 10px; 
+  top: 5px;
+  font-weight: bold;
+  font-size: 1.23em;
+}
+
+#pd-content{
+  position: relative;
+  margin-top: 0px;
+  width: 100%;
+  padding: 0px 10px 5px 10px;
+  height: auto auto;
+  text-align:left;
+}
+
+#pd-footer{
+  position: relative;
+  margin-top: 0px;
+  width: 100%;
+  height: 25px;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+
+/*********end of page dialog style*******/
+
+ul.bordered_list{
+  list-style-type: none;
+  position: relative;
+  left: -40px;
+  text-align: left;
+}
+
+ul.bordered_list > li{
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(104,104,104);
+  font-size: 13px;
+}
+
+ul.bordered_list > li > a{
+  color: black;
+  text-decoration: none;
+}
+
+ul.bordered_list > li > a:hover{
+  color: blue;
+}
+
+
+
+
+/************************
+ number item list navigation 
+*************************/
+
+ul.itemnav{
+  position: relative;
+  height: 30px;
+  width: 95%;
+  list-style: none;
+  display: block;
+  background-color: rgb(216,216,216);
+}
+
+ul.itemnav li{
+  float: left;
+}
+
+ul.itemnav li a{
+ padding: 5px;
+ display: block;
+ text-decoration:none;
+}
+
+
+/********************************
+* Coursera button style
+********************************/
+
+#btn{
+   /*background-color: rgb(7, 100, 156);*/
+    border-radius: 4px 4px 4px 4px;
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 20px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+    color: white;
+    background-image: -moz-linear-gradient(center top , #AA4344, #AA4344);
+    background-repeat: repeat-x;
+    background-color: #AA4344;
+    border-color: maroon maroon maroon;
+}
+
+#btn:hover{
+    background-color: maroon;
+    text-decoration: none;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    color: rgb(51, 51, 51);
+    color: white;
+    
+    
+    text-decoration: none;
+    -webkit-text-blink: none;
+    -webkit-text-decoration-color: -moz-use-text-color;
+    -webkit-text-decoration-line: none;
+    -webkit-text-decoration-style: solid;
+}
+
+#btn:disabled{
+   background-color: rgb(81, 163, 81);
+}
+
+/********anchor styles******************/
+
+a.small_white_anchor{
+    color: white;
+    text-decoration: none;
+}
+
+a.small_white_anchor:hover{
+    text-decoration: underline;
+}
+
+
+/*
+* moco costumize stylesheet
+* mococ costumize style are used for every pages in the moco 
+* system. some of moco pages uses this styles
+*
+*/
+
+
+/*about course style*/
+#c_title_header_container{
+  position: relative;
+  left: 0px;
+  width: 100%;
+  top: 30px;
+  min-height: 80px
+  background-color: rgb(250, 250, 250);
+  box-shadow: 0px 0px 1px 1px rgb(204, 204, 204);
+  padding-bottom: 60px;
+}
+
+#c_title_header{
+  position: absolute;
+  top: 15px;
+  width: 90%;
+  left: 10px;
+  text-align: left;
+  font: bold 26px helvetica;
+  color: maroon;
+}
+
+#about_cont_con{
+   position: absolute;
+   left: 25%;
+   width: 75%;
+   height: auto;
+   text-align: left;  
+}
+
+#about_hdr{
+   position:relative;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 45px;
+   border-bottom: 1px solid rgb(204,204,204);
+   text-align: left;
+}
+
+#about_hdr_title{
+  position: absolute;
+  left: 0px;
+  text-align: left;
+  width:100%;
+  height: 25px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#desc_cont{
+  position: relative;
+  top: 30px;
+  left: 10px;
+  width: 95%;
+  height: auto;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.info-label{
+    font: normal 22px helvetica, Arial Narrow;
+}
+
+.info-con{
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+/*    padding: 10px 10px 0px 0px;*/
+}
+
+.info-desc{
+    font: normal 18px Helvetica,Arial Narrow;
+    color: gray;
+}
+
+
+#edit_link{
+  position: relative;
+  top: 50px;
+  left: 10px;
+  width: 90%;
+
+}
+
+/** add course style**/
+
+h4.header{
+  border-bottom: 1px solid rgba(204,204,204,1.0);
+  padding-bottom: 10px;
+  text-align:left;
+}
+
+h3.header{
+  border-bottom: 1px solid rgba(204,204,204,1.0);
+  padding-bottom: 10px;
+  text-align:left;
+}
+ 
+span.h3{
+  font:bold 26px helvetica;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+
+
+#add_course_form_container{
+   position: relative;
+   top: 120px;
+   width: 90%;
+   height: auto auto;
+}
+
+#page-container{
+  position: relative;
+  top: 70px;
+  left: 0px;
+  width: 95%;
+  height: auto auto;
+}
+
+#add_course_header{
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid rgb(204,204,204);
+  text-align:left;
+}
+
+#add_course_title{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 300px;
+  height: 30px;
+  text-align:left;
+  
+}
+
+#add_course_form{
+  position: relative;
+  left: 0px;
+  top: 10px;
+  width: 100%;
+  text-align: left;
+  height: auto auto;
+}
+
+#form_el{
+  position: relative;
+  left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 90%;
+  height: auto;
+}
+
+/** course dashboard style**/
+
+#pg-title{
+  position: relative;
+  width: 100%;
+  font: normal 28px Tahoma;
+  color: maroon;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+#dashboard-disp-opt{
+ position: relative;
+ width: 100%;
+ text-align: left;
+ z-index:99;
+}
+
+
+/**Course list styles**/
+
+#cl_container{
+  position: relative;
+  left:0px;
+  top: 20px;
+  width: 100%;;
+  height: auto auto;
+}
+
+#cl_head{
+  position: relative;
+  top: 0px;
+  left:0px;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  padding-top: 20px;
+  background-color: rgb(205, 240, 240);
+}
+
+#cl_head_title{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 250px;
+  height: 30px;
+  text-align: left;
+}
+
+/** course announcement style **/
+.ann_browser{
+   position: fixed;
+   padding: 10px;
+   width: 270px;;
+   left: 5%;
+   top: 500px;
+   z-index: 100;
+   background-color: rgba(204,204,204,0.4);
+}
+
+
+
+.ca_ann_con{
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 95%;
+  height: auto auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(204,204,204);
+}
+
+#ca_ann_con{
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 95%;
+  height: auto auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(204,204,204);
+}
+
+#ca_date_con{
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  font: italic 14px Helvetica;
+}
+
+#ca_date_cont{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 95%;
+  height: 25px;
+  text-align: left;
+}
+
+#ca_content{
+  position: relative;
+  top: 20px;
+  left: 10px;
+  width: 95%;
+  height: auto auto;
+  text-align: justify;
+}
+
+#ca-edit-pane{
+  position: relative;
+  top: 20px;
+  text-align: right;
+  left: 10px;
+  width: 98%;
+  height: 25px;
+}
+
+tr.hdr{
+ color: maroon; 
+ background-color: lightgrey;
+}
+
+/** dropdown manu navigation **/
+
+
+ul.user { 
+  position: relative; 
+  top: 40px;
+  left: 0px;
+  z-index: 100; 
+  margin-right: 10px;
+  float: right; 
+  list-style: none;
+}
+
+ul.user a { 
+  display:inline; 
+  color: white;
+  font-family: Helvetica; 
+  font-size: 14px; 
+  text-decoration: none;
+}
+
+ul.user li, ul.user ul { 
+  display: inline;
+  margin: 0; 
+  padding: 3px; 
+  background: transparent;
+  width: 100%;
+  color: black;
+
+}
+
+ul.user li { 
+  float: none; 
+  line-height: 1.3em; 
+  vertical-align: middle ; 
+  zoom: 1; 
+  padding: 10px 10px; 
+}
+
+ul.user li.hover, ul.user li:hover { 
+  position: relative; 
+  z-index: 599; 
+  cursor: default;
+  background: rgba(0,0,0,.4); 
+  border-radius: 5px;
+}
+
+ul.user ul { 
+  visibility: hidden; 
+  position: absolute; 
+  top: 100%; 
+  left: 0px; 
+  z-index: 598; 
+  width: 100%; 
+  background: white; 
+  border: 1px solid rgb(204,204,204); 
+  border-radius: 5px;
+  box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+}
+
+ul.user ul > li > a{
+  color: black;
+}
+
+ul.user ul > li{
+  
+  border-bottom: 1px solid rgb(204,204,204)
+}
+
+ul.user ul li { 
+  float: left; 
+}
+
+ul.user ul ul { 
+  top: -2px; left: 100%; 
+}
+ul.user li:hover > ul {
+  visibility: visible 
+}
+
+i.icon-caret-down{
+  background-image: url('imageIcon/caret_down.png');
+}
+
+img.caret_down{
+  margin-top: 10px;
+}
+
+
+/** top bar style **/
+
+#h_bar{
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  background-color: maroon;
+}
+
+#sys-logo{
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  width: 130px;
+  border-right: 2px solid  #b03060;
+}
+
+#cur-date{
+  position: absolute;
+  left: 180px;
+  top: 40px;
+  color: white;
+  font: normal 14px Tahoma;
+}
+
+#user-menu{
+  position: absolute;
+  left: 53%;
+  width: 40%;
+  top: 0px;
+  text-align: right;
+}
+
+#user-name{
+  font: normal 14px Tahoma;
+}
+
+/** moco banner style **/
+
+#moco_banner{
+  position: relative;
+  top: 40px;
+  width: 100%;
+  height: 90px;
+}
+
+#moco_logo{
+  position: absolute;
+  top: 10px;
+  left: 1%;
+  width: 200px;
+  height: 70px;
+}
+
+#banner_title{
+  position: absolute;
+  left: 20%;
+  top: 40px;
+  width: 70%;
+  height: 40px;
+  text-align:left;
+}
+
+
+/** side banner style **/
+
+#sbar_con{
+  position: absolute;
+  left: 0px;
+  top: 20%;
+  width: 22%;
+  height: auto auto;
+  text-align: left;
+}
+
+ul.course-side-menu{
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+li{
+ line-height: 21px;
+}
+
+.course-menu-item{
+  list-style:none outside none;
+  min-height: 10px;
+/*  padding: 5px 5px 5px 5px;*/
+  background-color: rgba(128, 128, 128, 0.05);
+  border: 1px solid rgb(226, 226, 226);
+}
+
+.course-menu-item a{
+ 
+  text-decoration: none;
+}
+
+.course-menu-item:hover{
+  background-color: rgba(128, 128, 128, 0.15);
+}
+
+
+#side_menu{
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(240,240,240);
+  height: 30px;
+}
+
+#side_menu_link{
+  position:absolute;
+  top: 5px;
+  left: 10px;
+  width: 100%;
+  height: 25px;
+}
+
+/** student result style **/
+
+#stud_res_hdr{
+  position: absolute; 
+  left: 0px;
+  top: 10px;
+  height: 25px;
+  width: 50%;
+  text-align: left;
+}
+
+#stud_res_opt{
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  width: 50%;
+  height: 25px;
+  text-align: right;
+}
+
+#stud_res_display_option{
+  position: relative;
+  top: 40px;
+  width: 95%;
+  left: 10px;
+  height: 40px;
+  text-align: left;
+}
+
+
+/** syllabus style **/
+#topic_add_pane{
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 95%;
+  height: 40px;
+}
+
+#table_option{
+  position: relative;
+  top:10px;
+  left: 10px;
+  width: 95%;
+  height: 40px;
+}
+
+#tbl_container{
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: auto auto;
+}
+
+input.topic{
+  width: 80%;
+}
+
+th{
+  text-align: left;
+}
+
+/** anchor link style **/
+a.delete_link{
+  image-background: url(../images/exit.png);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/**** collapsible and expandable div******/
+
+div.expandabe{
+  position: relative;
+  width: 100%;
+  margin-bottom: 5px;
+  height: auto auto;
+} 
+
+div.expandable div.exp-header{
+  position: relative;
+  width: 100%;
+  background-color: rgb(235,235,235);
+  height: 30px;  
+  padding-left: 10px;
+  padding-top: 5px;
+  margin-top: 10px; 
+}
+
+div.expandable div.exp-content{
+  position: relative;
+  margin-top:5px;
+}
+
+/****** icon *************/
+span.caret-down{
+  position: absolute;
+  left: 95%;
+  top: 10px;
+  cursor: pointer;
+  text-align:right;
+}
+
+
+/*
+*Course Dashboard Styles
+*/
+
+div.d-opt{
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 50%;
+  padding-right: 10px;
+  text-align: right;
+}
+
+#f_header{
+  font: Normal 25px helvetica;
+}
+
+#fresh{
+ font: normal 18px helvetica;
+}
+
+
+/******experiment stylesheets**********/
+/*
+nav{
+  position: relative;
+  left: 0px;
+  width: 100%;
+  background: white;
+}
+
+nav ul ul{
+  display: none;
+}
+
+nav ul li:hover > ul{
+  display: block;
+}
+
+nav ul{
+  top:0px;
+  background: #fff;
+  position: relative;
+  list-style: none;
+  float: left;
+}
+
+nav ul:after{
+  content: "";
+  clear: both;
+  display: block;
+}
+
+nav ul li{
+  float: left;
+}
+
+nav ul li a {
+  display: block; 
+  padding: 5px 5px;
+  text-decoration: none;
+  color: black;
+  font: normal 12px helvetica;
+  text-align: left;
+}
+
+nav ul li a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav ul ul {
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid rgb(240,240,240);
+  padding: 5px;
+  position: absolute; 
+  margin: 0px;
+  top: 100%;
+  float: left;
+  z-index: 500;
+  background-color: white;
+}
+
+nav ul > ul > li {
+  float: left; 
+  border-top: 1px solid rgba(240,240,240,0.4);
+  border-bottom: 1px solid rgba(240,240,240,0.4);
+  position: relative;
+  padding: 5px;
+}
+
+nav ul ul li a {
+  padding: 5px;
+  font: normal 12px helvetica;
+  color: black;
+}
+
+nav ul ul li a:hover {
+  color: maroon;
+}
+*/
+
+/***********/
+#alert{
+  position: relative;
+}
+
+/*********header title********/
+.header-title{
+    width: 100%;
+    padding-bottom: 10px;
+   /* box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.6) inset, 1px 0px 2px rgba(0, 0, 0, 0.3);*/
+    border-bottom:  2px solid rgba(0,0,0,0.5);
+    text-align: left;
+}

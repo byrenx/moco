@@ -1,0 +1,11 @@
+<div id="fresh">
+
+  <center><h1> WELCOME TO YOUR COURSE DASHBOARD ! <h1></center></br>
+  <center><p> 	Currently you have no Enrolled Courses.</br>
+	To start  using MOCO, you may Offered Courses Link </br>
+		or Click this Link:
+  </p></center>
+		<center><a href='Offered_Courses.php' class='ui-state-default ui-corner-all'
+				style='padding: .4em 1em; text-decoration: none;'>Go to Offered Courses Page</a>
+		</center>
+</div>

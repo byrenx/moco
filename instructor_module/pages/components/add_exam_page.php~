@@ -1,0 +1,174 @@
+<script>
+$(function(){
+    $("#da").datepicker();
+    $("#dd").datepicker();
+    $("#duration").css('display', 'none');
+  });
+
+function timed(){
+    $('#duration').css('display', 'block');
+    $('#utt').val(1);
+}
+
+function untimed(){
+    $('#duration').css('display', 'none');
+    $('#utt').val(-11);
+}
+
+//validate submission
+var form ={
+  //variables
+msg: '',
+valid: true,
+title: null,
+date_avail: null,
+date_due: null,
+duration: null,
+type: null,
+timed: -1,
+//initialize and get the value of the fields involved
+Init: function(){
+    this.title = $("#q_title").val();
+    this.date_avail = $("#da").val();
+    this.date_due = $("#dd").val();
+    this.duration = $("#duration").val();
+    this.timed = $('#utt').val();
+    if($("#ttype").val()==0){
+      this.type = "Quiz";
+    }else{
+      this.type = "Exam";
+    }
+  } ,//end of Init
+
+validate: function(){
+    this.Init();
+    if(emptyStr(this.title) || this.title.length<0 ){
+      this.msg += " * Type the Title of the "+ this.type + '</br>';
+      this.valid = false;
+    }
+    if(!isValidDateFormat(this.date_avail)){
+      this.msg += " * Enter a valid date for date available e.g 03/05/2013 </br>";
+      this.valid = false;
+    }
+    if(!isValidDateFormat(this.date_due)){
+      this.msg += " * Enter a valid date for due date e.g 03/05/2013 </br>";
+      this.valid = false;
+
+    }
+    if(isValidDateFormat(this.date_due) && isValidDateFormat(this.date_avail)){
+      if(compDate1toDate2(this.date_due, this.date_avail)<0){
+	this.msg += " * Due date must not be before date available</br>";
+	this.valid = false;
+
+      }
+      if(!isLaterToday(this.date_avail)){
+	this.msg += " * Date available must not be before today</br>";
+	this.valid = false;
+
+      }
+      if(!isLaterToday(this.date_due)){
+	this.msg += " * Due date must not be before today</br>";
+	this.valid = false;
+      }
+    }
+
+    if(this.duration <= 0 && this.timed==1){
+      this.msg += ' * Duration must be greater than 0</br>';
+      this.valid = false;
+    }
+
+    if(this.valid==false){
+      $("#msg").removeClass()
+      .addClass('alert alert-danger')
+      .html('<b>You must follow the ff. validation rules(*) to add this ' + this.type + ' :</b> </br>'+this.msg);
+      this.clear();
+      return false;
+    }else{
+      return true;
+    }
+    
+  },//end of valid function,
+  //clear data
+clear: function(){
+    this.msg = '';
+    this.valid = true;
+  }
+};
+
+
+</script>
+
+
+<div id='about_cont_con'>  
+     <div id="about_hdr">
+        <span class="h3"> Add Quiz </span>
+        <a href="quiz.php">
+  <span class='glyphicon glyphicon-backward'></span>&nbsp;Go Back to Quizzes
+         </a>
+     </div> 
+     <div id='sub-content'>
+        <?php if (isset($_GET['status']) && $_GET['status']=='ok'){?>
+          <div class="alert alert-success">
+	     <?php if(isset($_GET['action']) && $_GET['action']=='add'){
+	              echo '<b>New Quiz succesfully added!</b>';
+	           }
+	           if(isset($_GET['action']) && $_GET['action']=='edit'){
+	              echo '<b> Quiz Info was succesfully updated!</b>';
+	           }
+             ?>
+	     
+          </div>
+	     <?php }else if(isset($_GET['status']) && $_GET['status']=='fail'){ ?>
+	  <div class="alert alert-danger">
+             Adding new Quiz failed					          </div>								  
+	     <?php }else{ ?>
+			<div id='msg'></div>
+	     <?php }?>
+	 							
+        <form id='addquiz' method='post' 
+              role="form" action="../../libraries/php/exec_controller.php"
+	      style='width:60%; margin: 20px 20px 40px 20px;' 
+              onsubmit="return form.validate()"> 
+             <input type='hidden' id='icr_id' 
+                    name='icr_id' 
+                    value="<?php echo $_SESSION['icr_id']?>">  
+             <input type='hidden' id='action' name='action' value='<?php echo $action; ?>'>
+             <input type='hidden' id='target' name='target' value='quiz'>
+             <input type='hidden' id='test_id' name='test_id' value='<?php echo $test_id; ?>'>
+             <input type="hidden" id="ttype" name="ttype" value="0">
+      
+   
+             <div class="form-group">
+                  <label>Quiz Title</label>
+                  <input type="text" id="q_title" value='<?php echo $q_title; ?>'
+                        name="q_title" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+	     <label>Date Available</label>
+	     <input type="text" id="da" name="da" value='<?php echo $date_avail;?>'
+	     class="form-control" style='width: 250px;'/>
+	     </div>
+	     
+	     <div class="form-group">
+    	        <label>Due Date</label>
+
+	        <input type="text" id="dd" name="dd" value='<?php echo $date_due;?>'
+	        class="form-control" style='width: 250px;'/>
+	     </div>
+	     
+	     <div class="form-group">
+	         <input type='hidden' id="utt" value="0">
+	         <label><input type="radio" id="untime" name="time" value="0" onclick="untimed()" checked>&nbsp;Untimed </label>&nbsp;
+                 <label><input type="radio" id="time" name="time" value="1" onclick="timed()">&nbsp;Timed</label>&nbsp;
+	         <input type="text" id="duration" name="duration" placeholder="Time Limit in Minutes" value="<?php echo $duration; ?>" 
+      	         class="form-control" onkeydown="return allNumbers(event);"
+	         maxlength="3" style='width: 200px;'/>
+	     </div>
+
+	     
+	     <input type='submit' class="btn btn-primary" 
+	     name='save' value='Save'>
+	     &nbsp;
+     </form>			  
+</div>

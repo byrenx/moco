@@ -1,0 +1,21 @@
+<?php
+require_once '../../instructor_module/class_models/im_announcement.php';
+
+class AnnouncementInterface{
+  protected $IM_ANNOUNCEMENT;
+
+  public function __construct(){
+    $this->IM_ANNOUNCEMENT = new IM_Announcement();
+  }
+
+  public function delAnnouncement(){
+    if($this->IM_ANNOUNCEMENT->delAnnouncement()){
+      echo "ok";
+    }else{
+      echo "restrict";
+    }
+  }
+
+}
+
+?>

@@ -1,0 +1,14 @@
+<div class="container"> 
+   <!-- course title --->
+   <div id="c_title_header_container">
+<!---   <div id="col-md-3 col-md-pull-9">-->
+     <span id="c_title_header">
+       <?php
+	  echo $title; 
+       ?>
+     </span>
+   </div>
+  
+  
+  
+   

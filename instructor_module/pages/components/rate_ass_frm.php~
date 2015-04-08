@@ -1,0 +1,26 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add Load Detail</h4>
+      </div>
+      <div class="modal-body">
+        <form action="" role="form">
+          <div class="form-groupp">
+            <label>Load Description</label>
+            <input type="text" id="desc" class="form-control"/>
+          </div>
+          <div class="form-groupp">
+            <label>Load in Tons</label>
+            <input type="number" id="load" class="form-control"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="javascript:addLoadDetails();" class="btn btn-primary"> Add </a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

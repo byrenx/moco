@@ -1,0 +1,113 @@
+<?php
+require_once '../../instructor_module/class_models/im_announcement.php';
+
+class AnnouncementInterface{
+  protected $IM_ANNOUNCEMENT;
+
+  public function __construct(){
+    $this->IM_ANNOUNCEMENT = new IM_Announcement();
+  }
+
+
+  public function addAnnouncement(){
+    if($this->IM_ANNOUNCEMENT->addAnnouncement()){
+      $this->showNewAnnouncement();
+    }else{
+      echo 'err';
+    }
+  }
+
+  public function updateAnnouncement(){
+    if($this->IM_ANNOUNCEMENT->updateAnnouncement()){
+      $this->updateAnnouncementPanel();
+    }else{
+      echo 'err';
+    }
+  }
+
+  public function delAnnouncement(){
+    if($this->IM_ANNOUNCEMENT->delAnnouncement()){
+      echo "ok";
+    }else{
+      echo "restrict";
+    }
+  }
+
+  private function showNewAnnouncement(){
+    
+    $ann = $this->IM_ANNOUNCEMENT->getNewAnnouncement();
+
+    $str_ann_panel = null;
+    
+    if($ann>0){
+      $str_ann_panel.="<div id='ca_ann_con' class='".$ann['ann_id']."'>";
+      $str_ann_panel.="<div id='ca_date_con'>";
+      $str_ann_panel.="<span id='ca_date_cont'>";
+      $str_ann_panel.="Date Updated : ".$ann['date_posted'];
+      $str_ann_panel.="</span>";
+      $str_ann_panel.="</div>";
+      //announcement content
+      $str_ann_panel.="<h4>{$ann['title']}</h4>";
+      $str_ann_panel.="<div id='ca_content'>";
+      $str_ann_panel.="{$ann['ann_stmt']}";
+      $str_ann_panel.="</div>";
+      $str_ann_panel.="<div id='ca-edit-pane'>";
+      $str_ann_panel.="<form id='".$ann['ann_id']."' 
+                       action='javascript:showUpdateDelAnnDg(\"popup_background\",\"popup_div\",\"".$ann['ann_id']."\");' method='post'>";
+      $str_ann_panel.="<input type='hidden' id='action' name='action' value='edit'>";
+      $str_ann_panel.="<input type='hidden' id='target' name='target' value='announcement'>";
+      $str_ann_panel.="<input type='hidden' id='ann_id' name='ann_id' value='".$ann['ann_id']."'>";
+      $str_ann_panel.="<input type='hidden' id='ann_title' name='ann_title' value='".$ann['title']."'>";
+      $str_ann_panel.="<button class='btn btn-default'  onclick='javascript:$(\"#{$ann['ann_id']} #action\").val(\"edit\")'>
+                       <img src='../../images/pen_16.png'>
+                       Edit</button>    ";
+      $str_ann_panel.="<button class='btn btn-default' onclick='javascript:$(\"#{$ann['ann_id']} #action\").val(\"del\")'>
+                       Delete</button>";
+      $str_ann_panel.="</form>";
+      $str_ann_panel.="</div>";
+      $str_ann_panel.="</br></br>";
+      $str_ann_panel.="</div>";
+    }
+    echo $str_ann_panel;
+  }
+
+  public function updateAnnouncementPanel(){
+    
+    $str_ann_panel=null;
+ 
+    $ann = $this->IM_ANNOUNCEMENT->getUpdatedAnnouncement($_POST['ann_id']);
+
+    $str_ann_panel.="<div id='ca_date_con'>";
+    $str_ann_panel.="<span id='ca_date_cont'>";
+    $str_ann_panel.="Date Updated : ".$ann['date_posted'];
+    $str_ann_panel.="</span>";
+    $str_ann_panel.="</div>";
+    $str_ann_panel.="<h4>{$ann['title']}</h4>";
+    //announcement content
+    $str_ann_panel.="<div id='ca_content'>";
+    $str_ann_panel.="{$ann['ann_stmt']}";
+    $str_ann_panel.="</div>";
+    $str_ann_panel.="<div id='ca-edit-pane'>";
+    $str_ann_panel.="<form id='{$ann['ann_id']}' 
+                      action='javascript:showUpdateDelAnnDg(\"popup_background\",\"popup_div\",\"{$ann['ann_id']}\");'
+                      method='post'>";
+    $str_ann_panel.="<input type='hidden' id='action' name='action' value='edit'>";
+    $str_ann_panel.="<input type='hidden' id='target' name='target' value='announcement'>";
+    $str_ann_panel.="<input type='hidden' id='ann_id' name='ann_id' value='".$ann['ann_id']."'>";
+    $str_ann_panel.="<input type='hidden' id='ann_title' name='ann_id' value='".$ann['title']."'>";
+    $str_ann_panel.="<button class='btn btn-default'  onclick='javascript:$(\"#{$ann['ann_id']} #action\").val(\"edit\")'>
+                       <img src='../../images/pen_16.png'>
+                       Edit</button>  ";
+    $str_ann_panel.="<button class='btn btn-default' onclick='javascript:$(\"#{$ann['ann_id']} #action\").val(\"del\")'>
+                       Delete</button>";
+    $str_ann_panel.="</form>";
+    $str_ann_panel.="</div>";
+    $str_ann_panel.="</br></br>";
+    
+    echo $str_ann_panel;
+  }
+
+
+}
+
+?>

@@ -1,0 +1,17 @@
+<?php
+session_start();
+$title = null;
+
+  if(isset($_SESSION['stud_id']) && isset($_SESSION['scr_id'])){
+    include "../templates/header.php";
+    include "../templates/c_title.php";
+    include "../templates/side_bar.php";
+    
+    include "../components/assignment_list.php";
+
+    
+  }
+?>
+</center>
+</body>
+</html>

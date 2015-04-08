@@ -1,0 +1,251 @@
+<?php
+  ob_start();
+  
+  class Commit{
+  
+     public function commitAction($action, $target){
+        if($action=="add"){
+           $this->commitAddAction($target);
+        }
+        if($action=="edit"){
+          $this->commitUpdateAction($target);
+        }  
+        if($action=="login"){
+	  $this->login();
+        }
+        if($action=='del'){
+          $this->commitDelAction($target);
+        }
+	if($action=='switch_ck'){
+
+	}
+	if($action=='up'){
+	  $this->moveUpAction($target);						
+	}
+	if($action=='down'){
+	  $this->moveDownAction($target);
+	}
+     }
+
+     private function commitAddAction($target){
+       
+       if($target=="lecture"){
+          require_once '../../instructor_module/class_interface/course_mat_interface.php';
+          $cmi = new CoursematInterface();
+          $response = $cmi->addDisplayNewLecture();
+	  echo $response;
+
+       }else if($target=='lecture_material'){
+          //insert and upload course lecture material
+          require_once '../../instructor_module/class_interface/course_mat_interface.php';
+          $cmi = new CoursematInterface();
+          $cmi->addDisplayNewMaterial();
+       }else if($target=='chapter'){
+	 require_once '../../instructor_module/class_interface/syllabus_interface.php';
+         $si = new SyllabusInterface();
+         $si->addNewChapter();
+       }else if($target=='announcement'){
+         require_once '../../instructor_module/class_interface/announcement_interface.php';
+         $anni = new AnnouncementInterface();
+	 $anni->addAnnouncement();
+	 //$anni->json_ann();
+	 
+       }else if($target=='quiz'){
+         require_once '../../instructor_module/class_interface/quiz_interface.php';
+         $qi = new QuizInterface();
+         $qi->addTest();         
+       }else if($target=='item_mp'){//adding multiple choice item
+         require_once "../../instructor_module/class_interface/quiz_interface.php";
+	 $qi = new QuizInterface();
+         $qi->addMPItem();
+       }
+       if($target=="item_tf"){
+         require_once "../../instructor_module/class_interface/quiz_interface.php";
+         $qi = new QuizInterface();
+         $qi->addTFItem();
+       }
+  
+       if($target=="mtf_item"){
+	 require_once "../../instructor_module/class_interface/quiz_interface.php";
+
+         $qi = new QuizInterface();
+         $qi->addMTFItem();
+       }
+       if($target=="id_item"){
+	 require_once "../../instructor_module/class_interface/quiz_interface.php";
+	 $qi = new QuizInterface();
+	 $qi->addIdentItem();
+       }
+
+       if($target == "assignment"){
+	 require_once "../../instructor_module/class_interface/assignment_interface.php";
+	 $assignment = new AssignmentInterface();
+	 $assignment->addAssignment();
+       }
+     }
+
+     private function commitDelAction($target){
+       if($target=='announcement'){
+         require_once '../../instructor_module/class_interface/announcement_interface.php';
+         $anni = new AnnouncementInterface();
+         $anni->delAnnouncement();
+       }
+       if($target=='quizitem'){
+         require_once "../../instructor_module/class_interface/quiz_interface.php";
+         $qi = new QuizInterface();
+         echo "deleting item";
+       }
+       
+       if($target=="chapter"){
+	 require_once "../../instructor_module/class_interface/syllabus_interface.php";
+	 $si = new SyllabusInterface();
+	 $si->delChapter();
+	 header("Location: ../../instructor_module/pages/syllabus.php");
+	 
+       }
+
+       if($target=='lecture'){
+	 require_once "../../instructor_module/class_interface/course_mat_interface.php";
+	 $cmi = new CoursematInterface();
+	 $deleted = $cmi->delLecture();
+	 if($deleted){
+	   print 'deleted';
+	 }else{
+	   print 'fail';
+	 }
+       }
+
+       if($target=='assignment'){
+	 require_once '../../instructor_module/class_models/assignment_model.php';
+	 $ass_model = new AssignmentModel();
+	 $ass_model->connect_to_db();
+	 if($ass_model->delAssignment($_POST['id'])){
+	   echo 'deleted';
+	 }else{
+	   echo 'fail';
+	 }
+	 
+       }
+
+       if($target=='lect_mat'){
+	 require_once '../../instructor_module/class_interface/course_mat_interface.php';
+	 $cmi = new CoursematInterface();
+	 $cmi->del_lm();
+       }
+
+       if($target == 'v_test'){
+	 require_once "../../instructor_module/class_interface/quiz_interface.php";
+	 $qi = new QuizInterface();
+	 $qi->vd_test();
+       }
+
+       if($target == 'test'){
+	 require_once '../../instructor_module/class_models/quiz_model.php';
+	 $q_model = new QuizModel();
+	 if($q_model->del_test()){
+	   echo 'true';
+	 }else{
+	   echo 'false';
+	 }
+	 
+       }
+     }
+
+     private function commitUpdateAction($target){
+       if($target=='chapter'){
+         require_once '../../instructor_module/class_interface/syllabus_interface.php';
+         $si = new SyllabusInterface();
+         $si->updateChapter();
+       }
+       if($target=='announcement'){
+         require_once '../../instructor_module/class_interface/announcement_interface.php';
+         $anni_update = new AnnouncementInterface();
+         $anni_update->updateAnnouncement();
+       }
+       if($target=='quiz'){
+         require_once "../../instructor_module/class_interface/quiz_interface.php";
+         $qi = new QuizInterface();
+         $qi->updateQuiz();
+       }
+       if($target=='item_mp'){//adding multiple choice item
+         require_once "../../instructor_module/class_interface/quiz_interface.php";
+	 $qi = new QuizInterface();
+         $qi->updateMpItem();
+       }
+       if($target=="item_tf"){
+         require_once "../../instructor_module/class_interface/quiz_interface.php";
+	 $qi = new QuizInterface();
+         $qi->updateTFItem();
+       }
+
+       if($target == 'mtf_item'){
+	 require_once "../../instructor_module/class_interface/quiz_interface.php";
+	 $qi = new QuizInterface();
+	 $qi->updateMTFItem();
+       }
+
+       if($target == 'id_item'){
+	 require_once "../../instructor_module/class_interface/quiz_interface.php";
+	 $qi = new QuizInterface();
+	 $qi->updateIdItem();
+       }
+
+       if($target=="lecture"){
+	 require_once "../../instructor_module/class_interface/course_mat_interface.php";
+	 $cmi = new CoursematInterface();
+	 
+	 $result = $cmi->updateLecture();
+	 print $result;
+	 
+       }
+       if($target == 'ass_rate'){
+	 require_once "../../instructor_module/class_interface/assignment_interface.php";
+	 $ai = new AssignmentInterface();
+	 $ai->rate_sub();
+       }
+     }
+
+     private function login(){
+       
+     }
+
+     private function moveUpAction($target){
+       if($target=="chapter"){
+	 require_once "../../instructor_module/class_interface/syllabus_interface.php";
+	 $si = new SyllabusInterface();
+	 $si->moveUpSeq();
+	 header("Location: ../../instructor_module/pages/syllabus.php");
+       }
+     }
+
+     public function moveDownAction($target){
+       if($target=="chapter"){
+	 require_once "../../instructor_module/class_interface/syllabus_interface.php";
+	 $si = new SyllabusInterface();
+	 $si->moveDownSeq();
+	 header("Location: ../../instructor_module/pages/syllabus.php");
+       }
+     }
+
+     private function switchCType(){
+       require_once "../../libraries/database/pdo/db_connect.php";
+       require_once "../../instructor_module/class_models/course.php";
+       //db connection
+       $connector = new DBConnector();
+       $connector->connect();
+
+       $course = new IMCourse($connector);
+       $course->switchCOurseType($_POST['icrd'], $_POST['c_type']);
+     }
+  }
+
+  $commit = new Commit();
+ 
+  if(count($_POST) > 0){
+    $commit->commitAction($_POST['action'], $_POST['target']);       
+  }else if(count($_GET)>0){  
+     $commit->commitAction($_GET['action'], $_GET['target']);
+  }
+
+
+?>

@@ -1,0 +1,94 @@
+<div id="accessB">
+<ul class="nav nav-pills navbar-right btn-default">
+  <li><a href="index.php" class="glyphicon glyphicon-home">Home</a></li>
+  <li><a href="courses.php" class="glyphicon glyphicon-briefcase">Courses </a></li>
+  <li  class="active"><a href="login.php" class="glyphicon glyphicon-user">Login</a>
+</ul>
+</div>
+
+<body id="homeBody"> 
+
+
+<div id="login_container">
+   <!--title-->
+   <h4 class="header">
+      <?php
+        echo "Sign In";
+      ?>
+   </h4>
+   <?php
+     if(isset($_GET) && isset($_GET['status']) && $_GET['status']=='error'){
+        echo "<div style='text-align: left;' class='alert alert-danger'>";
+        echo '<b> Either Username or Password is invalid </b>';
+        echo '</div>';
+     }else if(isset($_GET) && isset($_GET['status']) && isset($_GET['Cor_code'])&& isset($_GET['scrid'])&& $_GET['status']=='login'){
+        echo "<div style='text-align: left;' class='alert alert-warning'>";
+        echo '<b> Please Login to Enroll </b>';
+        echo '</div>';
+
+     }
+   ?>    
+   <!--form elems-->
+   <div id="add_course_form">
+     <form role="form" action="libraries/php/executeAction.php" method="post"
+           onsubmit="javascript: return validateAccountInput();">
+          
+            <input type="hidden" name="action" value="login">
+            <?php
+   if(isset($_GET['scrid']) && isset($_GET['Cor_code'])){
+      echo "<input type='hidden' name='EnrollID' value='{$_GET['scrid']}'>";
+      echo "<input type='hidden' name='Cor_code' value='{$_GET['Cor_code']}'>";
+    }
+            ?>
+	    <div class="form-group">
+	        <input class="form-control" type="text" id="uname" name="uname" value="" required="true" 
+                       placeholder="ID Number"  onkeydown="return allNumbers(event)" style="width:200px;"
+                       size='10' maxlength='10'>
+	    </div>
+		
+	    <div class="form-group"> 
+   <input class="form-control" type="password" id="password" name="password" value="" required="true"
+                       placeholder="Password"  style="width:200px;"
+                       maxlength='10'>
+                <!---onkeydown="return allNumbers(event)"--->
+	    </div>
+                
+            <div id="form_el">
+               <div style="position:absolute;left:0px;">
+                  <label>
+                    <input type="radio" id="target" name="target" value="s"
+                           checked="true">
+                    Student
+                  </label>
+               </div>
+
+               <div style="position:absolute;left:100px;">
+                  <label>
+                    <input type="radio" id="target" name="target" value="i">
+                    Instructor
+                  </label>
+              </div>
+            </div>
+	    </br>
+            </br> 
+	    <div id="form_el" >
+	       <input class="btn btn-primary" type="submit" id="login" name="login" value="Sign In">
+	       </br>
+	       </br>
+	   </div>
+	 </form>
+        <!---notice div for here----->
+        <div id="login_note" class="panel panel-danger">
+          <span class="glyphicon glyphicon-exclamation-sign">  
+             
+
+          </span>
+          <span style="position: absolute;left:60px;" >
+             Use Your AKAN account to</br>
+             Sign In for MOCO
+          </span>
+        </div>
+   </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
