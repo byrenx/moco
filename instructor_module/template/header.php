@@ -1,3 +1,4 @@
+<?php define('BASEPATH','http://' . $_SERVER['SERVER_NAME'] . '/apps/moco/');?>
 
 <!DOCTYPE html>
 
@@ -11,13 +12,11 @@
           MOCO-MSU Online Courseware
         </title> 
         
-        <style type='text/css'>
-          @import "../../libraries/bootstrap/css/bootstrap.min.css";
-          @import "../../libraries/themes/jquery-ui.css";
-          @import "../../libraries/themes/moco-theme.css";
-          @import "../../libraries/widgEditor/css/widgEditor.css";
-        </style>
-	
+	<link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/themes/moco-theme.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/widgEditor/css/widgEditor.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/themes/jquery-ui.css">
 	<script type="text/x-mathjax-config">
 	   MathJax.Hub.Config({
                  extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js"],

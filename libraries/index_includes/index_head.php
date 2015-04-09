@@ -28,6 +28,7 @@ define('BASEPATH','http://' . $_SERVER['SERVER_NAME'] . '/apps/moco/');
     <link href="<?php echo BASEPATH; ?>libraries/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href="<?php echo BASEPATH; ?>libraries/themes/jquery-ui.css" type="text/css" rel="stylesheet">
     <link href="<?php echo BASEPATH; ?>libraries/themes/moco-theme-stud.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo BASEPATH; ?>libraries/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet">
 
 
 <link type="image/x-icon" href="images/moco_logo.png" rel="icon"></link>
