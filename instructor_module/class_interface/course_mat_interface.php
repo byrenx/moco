@@ -126,9 +126,9 @@ class CoursematInterface{
 				    'title'=>$lecture['tittle']);  
 	  echo "<tr id='{$lecture['lect_id']}'>";
 	  echo "<td width='30'><a href='javascript:delLect(\"{$lecture['lect_id']}\");' title='Delete this Lecture'><span class='glyphicon glyphicon-remove text-danger'></span></a></td>";
-	  echo "<td width='30'><a href='javascript:showEditLectForm( \"popup_background\", \"popup_div\", \"{$lecture['lect_id']}\",\"{$lecture['ch_id']}\")' title='Update this Lecture'><span class='glyphicon glyphicon-edit'></span></a></td>";
+	  echo "<td valign='middle' width='30'><a href='javascript:showEditLectForm( \"popup_background\", \"popup_div\", \"{$lecture['lect_id']}\",\"{$lecture['ch_id']}\")' title='Update this Lecture'><span class='glyphicon glyphicon-edit'></span></a></td>";
 	  echo "<td width='30'><a href='javascript:showAddLectureMaterialForm(\"{$lecture['lect_id']}\")' title='Upload Lecture material for this lecture'><i class='fa fa-upload'></i></a></td>";
-	  echo "<td>{$lecture['tittle']}</td>"; 
+	  echo "<td valign='middle'>{$lecture['tittle']}</td>"; 
 	  echo "<td width='40%'>";
 	  $this->displayLectMat($lecture['lect_id'], $lecture['materials']);
 	  echo "</td>";
