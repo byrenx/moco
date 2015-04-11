@@ -1,5 +1,5 @@
-<?php
-?><!DOCTYPE html>
+<?php define('BASEPATH','http://' . $_SERVER['SERVER_NAME'] . '/apps/moco/');?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">  
   <head>
     <meta charset="utf-8" />
@@ -13,6 +13,10 @@
    @import  "../../libraries/themes/moco-theme-stud.css";
   
     </style>
+    <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/themes/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/themes/moco-theme-stud.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASEPATH;?>libraries/font-awesome/css/font-awesome.css">
 <link type="image/x-icon" href="../../images/moco_logo.png" rel="icon"></link>
 <link type="image/x-icon" href="../../images/moco_logo.png" rel="shortcut icon"></link>
   </head>
@@ -73,7 +77,6 @@ echo " <div id='Offered_Courses' style='left:45%; width: 54%; top:40px;'>
 	  </nav>
 	</nav>
 	<center>
- <!---- javascript ------->
  <script type="text/x-mathjax-config">
 	   MathJax.Hub.Config({
 	     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}

@@ -281,6 +281,11 @@ class IMSyllabus extends Syllabus{
     return $this->db_connector->selectAll($this->query)->fetch();
   }
 
+  public function getLectureMaterial($lm_id){
+    $query = "select * from lect_mat where lectmat_id = ?";
+    return $this->db_connector->select($query, array($lm_id));
+  }
+  
   public function del_lm($lm_id){
     $query = "delete from lect_mat where lectmat_id=?";
     return $this->db_connector->delete($query, array($lm_id));

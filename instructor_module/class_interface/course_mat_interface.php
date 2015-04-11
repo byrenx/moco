@@ -146,68 +146,6 @@ class CoursematInterface{
     
   }
 
-  /*  public function displayLectsAndMats($icr_id){
-      /* precondition: $icr -> instructor course record id
-
-      postcondition: display all lectures axnd its
-      corresponding materials
-     
-      $chapters = $this->IM_SYLLABUS->getSyllabus($icr_id);
-      if(count($chapters)>0){
-      //echo "";
-      foreach($chapters as $chapter){
-      echo "<div class='exp-header'>";
-      echo "<form id='frm_chid' name='frm_chid'>";
-      echo     "<input type='hidden' 
-      id='chapter_id' 
-      name='chapter_id' 
-      value='{$chapter['chapter_id']}'>";
-      echo     "<input type='hidden' 
-      id='displayed' 
-      name='displayed' value='0'>";
-      //chapter title
-      //javascript:showpopup_form(\"popup_background\",\"popup_div\")
-      echo      "<div class='header'>
-
-      <a href='javascript:showAddLectForm(\"addlect\")' 
-      title='Add Lecture' onclick='$(\"#ch_id\").val({$chapter['chapter_id']})'
-      >
-      <span class='glyphicon glyphicon-plus-sign'></span>
-      </a>&nbsp;
-      <span style='font-size:1.15em'>{$chapter['title']}</span>
-      </div>";
-      echo      "<a id='{$chapter['chapter_id']}' href='javascript:hide(\"".$chapter['chapter_id']."\")'>";
-      echo "</a>";
-      echo "</form>";
-      echo "</div>";  
-      echo "<div id='{$chapter['chapter_id']}'
-      class='exp-content'>";
-      echo "<table id='{$chapter['chapter_id']}' class='table'>";
-      //content
-      foreach($chapter['lectures'] as $lecture){
-      $this->lectures[] = array('lect_id'=>$lecture['lect_id'], 
-      'title'=>$lecture['tittle']);  
-      echo "<tr id='{$lecture['lect_id']}'>";
-      echo "<td width='30'><a href='javascript:delLect(\"{$lecture['lect_id']}\");' title='Delete this Lecture'><span class='glyphicon glyphicon-remove text-danger'></span></a></td>";
-      echo "<td width='30'><a href='javascript:showEditLectForm( \"popup_background\", \"popup_div\", \"{$lecture['lect_id']}\",\"{$lecture['ch_id']}\")' title='Update this Lecture'><span class='glyphicon glyphicon-edit'></span></a></td>";
-      echo "<td width='30'><a href='javascript:showAddLectureMaterialForm(\"{$lecture['lect_id']}\")' title='Upload Lecture material for this lecture'><span class='glyphicon glyphicon-upload'></span></a></td>";
-      echo "<td>{$lecture['tittle']}</td>"; 
-      echo "<td width='40%'>";
-      $this->displayLectMat($lecture['lect_id'], $lecture['materials']);
-      echo "</td>";
-      echo "</tr>";
-      }
-      echo "</table>";
-      echo "</div>"; 
-      }//end of foreach
-
-      }else{//end of if
-      echo "<h3>Currently no syllabus content found!</h3>";
-      echo "<p>To manage this page you need create syllabus<p>";
-      }//end of if else
-    
-      }
-  */
 
   public function displayLectMat($lect_id, $lecture_material){
     echo "<nav>";
@@ -294,7 +232,10 @@ class CoursematInterface{
   }
 
   public function del_lm(){
-    if($this->IM_SYLLABUS->del_lm($_GET['lm_id'])){
+    $lm_id = $_GET['lm_id'];
+    $lect_material = $this->IM_SYLLABUS->getLectureMaterial($lm_id)->fetch();
+    if($this->IM_SYLLABUS->del_lm($lm_id)){
+      unlink("../../lecture_media_storage/".$lect_material['file_url']);
       echo 'ok';
     }else{
       echo 'err';

@@ -1,17 +1,17 @@
 <?php
-  include "libraries/index_includes/index_head.php";  
-  if(isset($_SESSION['scr_id']))
-     unset($_SESSION['scr_id']);
+include "libraries/index_includes/index_head.php";  
+if(isset($_SESSION['scr_id']))
+  unset($_SESSION['scr_id']);
 
 ?>
 
 <body style="font-family: verdana" id="homeBody">
-   <?php 
+  <?php 
 
-  include "libraries/index_includes/Course_Query.php";
-  include "libraries/index_includes/CourseContents.php";
- 
-?>
+   include "libraries/index_includes/Course_Query.php";
+   include "libraries/index_includes/CourseContents.php";
+   
+   ?>
 
 <div id="accessB">
 <ul class="nav nav-pills navbar-right btn-default">

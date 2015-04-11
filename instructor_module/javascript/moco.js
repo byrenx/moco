@@ -892,6 +892,7 @@ function dellm(lm_id){
 
 	$.get(server, inputs, function(rs){
 	    rs = new String(rs).trim();
+	    console.log(rs);
 	    if(rs=='ok'){
 		$('li#'+lm_id).remove();
 	    }

@@ -65,7 +65,7 @@ class CoursematInterface{
       echo "<div class='panel-group' id='accordion'>";
       foreach($chapters as $chapter){
 	echo "<div class='panel panel-default'>";
-	echo "<div class='panel-heading'>";
+	echo "<div class='panel-heading' style='background-color: rgba(204, 204, 204, 0.5);'>";
 	echo "<form id='frm_chid' name='frm_chid'>";
 	echo "<input type='hidden' 
                   id='chapter_id' 
@@ -81,7 +81,7 @@ class CoursematInterface{
 	echo "</form>";
 	echo "</div>";  
 	echo "<div id='{$chapter['chapter_id']}' class='panel-collapse collapse-in'>";
-	echo "<table id='{$chapter['chapter_id']}' class='table table-condensed'>";
+	echo "<table id='{$chapter['chapter_id']}' class='table table-condensed table-striped'>";
 	//content
 	//print_r($chapter['lectures']);
 	foreach($chapter['lectures'] as $lecture){
