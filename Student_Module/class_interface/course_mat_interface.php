@@ -88,8 +88,8 @@ class CoursematInterface{
 	  $this->lectures[] = array('lect_id'=>$lecture['lect_id'], 
 				    'title'=>$lecture['tittle']);  
 	  echo "<tr id='{$lecture['lect_id']}'>";
-	  echo "<td valign='middle'>{$lecture['tittle']}</td>"; 
-	  echo "<td valign='middle' style='text-align: right; margin-right: 10px;'>";
+	  echo "<td style='vaertical-align: middle'>{$lecture['tittle']}</td>"; 
+	  echo "<td style='text-align: right; margin-right: 10px; vertical-align: middle'>";
 	  $this->displayLectMat($lecture['lect_id'], $lecture['materials']);
 	  echo "</td>";
 	  echo "</tr>";

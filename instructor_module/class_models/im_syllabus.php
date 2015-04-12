@@ -258,7 +258,6 @@ class IMSyllabus extends Syllabus{
   }
 
   public function delLect($lect_id){//delete lecture identified by lecture id $lect_id
-    
     $this->query = "DELETE FROM lecture WHERE lect_id=?";
     return $this->db_connector->delete($this->query, array($lect_id));
     
@@ -284,6 +283,11 @@ class IMSyllabus extends Syllabus{
   public function getLectureMaterial($lm_id){
     $query = "select * from lect_mat where lectmat_id = ?";
     return $this->db_connector->select($query, array($lm_id));
+  }
+
+  public function getLectMatssFrLect($lecture_id){
+    $query = "select * from lect_mat where lect_id = ?";
+    return $this->db_connector->select($query, array($lecture_id));
   }
   
   public function del_lm($lm_id){
